@@ -1,0 +1,10 @@
+{
+	"profiles": {
+		"Light_Server_Manager.Windows (Unpackaged)": {
+			"commandName": "Project"
+		},
+		"Light_Server_Manager.Windows (Package)": {
+			"commandName": "MsixPackage"
+		}
+	}
+}

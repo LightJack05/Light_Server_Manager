@@ -1,0 +1,15 @@
+﻿<Page x:Class="Light_Server_Manager.MainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:Light_Server_Manager"
+      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+  <Grid>
+
+    <NavigationView x:Name="ngvMain" IsBackButtonVisible="Collapsed">
+      <NavigationView.MenuItems>
+        <NavigationViewItem Tag="quickAccess" Content="Quick Access" Icon="Send"/>
+      </NavigationView.MenuItems>
+      <Frame 
+    </NavigationView>
+  </Grid>
+</Page>
