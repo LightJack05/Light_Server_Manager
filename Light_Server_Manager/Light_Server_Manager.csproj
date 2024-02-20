@@ -1,5 +1,6 @@
 <Project Sdk="Uno.Sdk">
   <PropertyGroup>
+    <ImplicitUsings>disable</ImplicitUsings>
     <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows')) or '$(EnableWindowsTargeting)' == 'true'">$(TargetFrameworks);$(DotNetVersion)-windows10.0.19041</TargetFrameworks>
     <TargetFrameworks>$(TargetFrameworks);$(DotNetVersion);$(DotNetVersion)-maccatalyst</TargetFrameworks>
     <TargetFrameworks Condition="'$(OverrideTargetFramework)'!=''">$(OverrideTargetFramework)</TargetFrameworks>
@@ -18,6 +19,9 @@
     -->
     <!-- <WindowsSdkPackageVersion>10.0.22621.28</WindowsSdkPackageVersion> -->
   </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Pages\QuickAccessPage.xaml" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Uno.WinUI" />
@@ -27,6 +31,10 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Console" />
     <PackageReference Include="Microsoft.WindowsAppSDK" Condition="$(TargetFramework.Contains('windows10'))" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Condition="$(TargetFramework.Contains('windows10'))" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\QuickAccessPage.xaml" />
   </ItemGroup>
 
 </Project>

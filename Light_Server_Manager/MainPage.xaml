@@ -4,12 +4,12 @@
       xmlns:local="using:Light_Server_Manager"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
   <Grid>
-
-    <NavigationView x:Name="ngvMain" IsBackButtonVisible="Collapsed">
+    <!--<NavigationView x:Name="ngvMain" IsBackButtonVisible="Collapsed">
       <NavigationView.MenuItems>
         <NavigationViewItem Tag="quickAccess" Content="Quick Access" Icon="Send"/>
-      </NavigationView.MenuItems>
-      <Frame 
-    </NavigationView>
+      </NavigationView.MenuItems>-->
+      <Frame x:Name="frmMain" Loaded="frmMain_Loaded"/>
+    
+    <!--</NavigationView>-->
   </Grid>
 </Page>

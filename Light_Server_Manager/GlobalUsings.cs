@@ -1,4 +1,5 @@
-﻿global using System.Collections.Immutable;
+global using System;
+global using System.Collections.Immutable;
 global using System.Windows.Input;
 global using Microsoft.Extensions.DependencyInjection;
 global using Windows.Networking.Connectivity;
