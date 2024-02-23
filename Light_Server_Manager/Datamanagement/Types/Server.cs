@@ -33,24 +33,33 @@ internal class Server
         IpAddress = ipAddress;
         PortForwards = new();
         PortAssociations = new();
+
+        PortAssociations.CollectionChanged += OnPortAssociationsUpdated;
     }
 
 
     private void OnPortAssociationsUpdated(object? sender, NotifyCollectionChangedEventArgs e)
     {
-        foreach (PortAssociation portAssociation in e.NewItems)
+        if(e.NewItems != null)
         {
-            if (portAssociation.ServerContext == null)
+            foreach (PortAssociation portAssociation in e.NewItems)
             {
-                portAssociation.ServerContext = this;
+                if (portAssociation.ServerContext == null)
+                {
+                    portAssociation.ServerContext = this;
+                }
             }
         }
-        foreach (PortAssociation portAssociation in e.OldItems)
+        if(e.OldItems != null)
         {
-            if (portAssociation.ServerContext == this && !PortAssociations.Contains(portAssociation))
-            { 
-                portAssociation.ServerContext = null; 
+            foreach (PortAssociation portAssociation in e.OldItems)
+            {
+                if (portAssociation.ServerContext == this && !PortAssociations.Contains(portAssociation))
+                {
+                    portAssociation.ServerContext = null;
+                }
             }
         }
+        
     }
 }

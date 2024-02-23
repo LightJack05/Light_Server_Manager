@@ -15,7 +15,7 @@ public sealed partial class MainPage : Page
 
         Server newServer = new Server("Foo", "foo", "127.0.0.1");
         //TODO make event fire on this line.
-        newServer.PortAssociations.(new("ssh", 22));
+        newServer.PortAssociations.Add(new PortAssociation("ssh", 22));
 
         newServer.PortAssociations.RemoveAt(0);
     }
