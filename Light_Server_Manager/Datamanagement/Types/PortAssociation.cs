@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Light_Server_Manager.Datamanagement.Types;
-internal class PortAssociation
+internal class PortAssociation : IDisposable
 {
     public string? Purpose { get; set; }
     public ushort Port { get; set; }
@@ -15,6 +15,8 @@ internal class PortAssociation
     {
         Purpose = purpose;
         Port = port;
+
+        DataStore.RamDataStore.PortAssociations.Add(this);
     }
 
     public PortAssociation(string? purpose, ushort port, Server serverContext)
@@ -22,5 +24,12 @@ internal class PortAssociation
         Purpose = purpose;
         Port = port;
         ServerContext = serverContext;
+
+        DataStore.RamDataStore.PortAssociations.Add(this);
+    }
+
+    public void Dispose()
+    {
+        DataStore.RamDataStore.PortAssociations.Remove(this);
     }
 }

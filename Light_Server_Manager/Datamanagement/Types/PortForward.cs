@@ -18,6 +18,8 @@ internal class PortForward
         Purpose = purpose;
         PortIn = portIn;
         PortOnTargetServer = portOnTargetServer;
+
+        DataStore.RamDataStore.PortForwards.Add(this);
     }
     public PortForward(string purpose, ushort portIn, ushort portOnTargetServer, Server forwardingServer, Server targetServer ) 
     {
@@ -26,6 +28,8 @@ internal class PortForward
         PortOnTargetServer = portOnTargetServer;
         ForwardingServer = forwardingServer;
         TargetServer = targetServer;
+
+        DataStore.RamDataStore.PortForwards.Add(this);
     }
 
 

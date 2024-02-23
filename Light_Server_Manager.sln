@@ -14,6 +14,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Light_Server_Manager.Skia.Gtk", "Light_Server_Manager.Skia.Gtk\Light_Server_Manager.Skia.Gtk.csproj", "{5460E5F6-99B0-4394-B100-5AEEC6B04C50}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Light_Server_Manager.Windows", "Light_Server_Manager.Windows\Light_Server_Manager.Windows.csproj", "{88193C2C-7E46-4FEB-98F0-AE3582E34A3E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E37646BA-F800-4A6E-8828-39D049775FA4} = {E37646BA-F800-4A6E-8828-39D049775FA4}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Light_Server_Manager.Mobile", "Light_Server_Manager.Mobile\Light_Server_Manager.Mobile.csproj", "{6AE4F694-47A3-46C1-B49F-C2F8A1DDB859}"
 EndProject

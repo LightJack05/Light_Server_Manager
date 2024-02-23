@@ -7,13 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Light_Server_Manager.Datamanagement.Types;
-internal class Server
+internal class Server : IDisposable
 {
     public string? Name { get; set; }
     public string? Hostname { get; set; }
     public string? IpAddress { get; set; }
 
     public ObservableCollection<PortForward> PortForwards { get; private set; }
+    public ObservableCollection<PortForward> PortForwardEndpoints { get; private set; }
     public ObservableCollection<PortAssociation> PortAssociations { get; private set; }
 
     public Server(string? name, string? hostname, string? ipAddress, ObservableCollection<PortForward> portForwards, ObservableCollection<PortAssociation> portAssociations)
@@ -25,6 +26,8 @@ internal class Server
         PortAssociations = portAssociations;
 
         PortAssociations.CollectionChanged += OnPortAssociationsUpdated;
+
+        DataStore.RamDataStore.Servers.Add(this);
     }
     public Server(string? name, string? hostname, string? ipAddress)
     {
@@ -35,6 +38,8 @@ internal class Server
         PortAssociations = new();
 
         PortAssociations.CollectionChanged += OnPortAssociationsUpdated;
+
+        DataStore.RamDataStore.Servers.Add(this);
     }
 
 
@@ -61,5 +66,14 @@ internal class Server
             }
         }
         
+    }
+
+    public void Dispose()
+    {
+        DataStore.RamDataStore.Servers.Remove(this);
+        foreach (PortAssociation portAssociation in PortAssociations)
+        {
+            portAssociation.Dispose();
+        }        //TODO: Implement removal of port forwards.
     }
 }
