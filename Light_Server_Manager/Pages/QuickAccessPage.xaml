@@ -13,6 +13,32 @@
       <RowDefinition Height="Auto"/>
       <RowDefinition Height="*"/>
     </Grid.RowDefinitions>
-      <AutoSuggestBox Grid.Row="0" PlaceholderText="Search everything..." QueryIcon="Find" FontSize="25" Height="50" Width="500" Margin="50"/>
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="auto"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition Height="auto"/>
+          <RowDefinition Height="auto"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <AutoSuggestBox Grid.Column="1"
+                        Grid.Row="0"
+                        x:Name="asbMainSearch"
+                        TextChanged="asbMainSearch_TextChanged"
+                        PlaceholderText="Search everything..."
+                        QueryIcon="Find"
+                        FontSize="25"
+                        Height="50"
+                        Width="500"
+                        Margin="0,20,5,0"/>
+        
+
+      </Grid>
+    </StackPanel>
     </Grid>
 </Page>

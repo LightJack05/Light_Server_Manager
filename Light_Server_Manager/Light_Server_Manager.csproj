@@ -34,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <UpToDateCheckInput Remove="Pages\QuickAccessPage.xaml" />
+    <UpToDateCheckInput Include="Pages\QuickAccessPage.xaml" />
   </ItemGroup>
 
 </Project>
